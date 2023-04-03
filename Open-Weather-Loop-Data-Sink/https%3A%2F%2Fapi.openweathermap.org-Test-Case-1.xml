@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="8deccf5c-d9f5-4f7c-8dc5-6f61da70854b" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="https://api.openweathermap.org Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="08dc98ad-c3ae-435f-a66b-376ce4d7695cfileName">https%3A%2F%2Fapi.openweathermap.org-Test-Case-1</con:setting>
+    <con:setting id="8deccf5c-d9f5-4f7c-8dc5-6f61da70854bfileName">https%3A%2F%2Fapi.openweathermap.org-Test-Case-1</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Data Source" id="26edb3ba-b4bd-4749-9113-b2150076d9b2">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>10</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>CITY</GeneratorType0>
+          <PropertyName0>q</PropertyName0>
+          <repetitionCountq>0</repetitionCountq>
+          <repeatValuesq>false</repeatValuesq>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>false</con:shared>
+      <con:restartShared>false</con:restartShared>
+      <con:property>q</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="6c096acc-cf3b-4182-925b-9b80910875fc">
+    <con:settings/>
+    <con:config service="https://api.openweathermap.org" methodName="Weather" resourcePath="/data/2.5/weather" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="d35664ee-fe5f-43c9-addb-ebcb0440edb3" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://api.openweathermap.org</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/data/2.5/weather</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="q" value="${Data Source#q}"/>
+          <con:entry key="appid" value="26d00d9bb1b082eaa591d0696e6442f1"/>
+          <con:entry key="units" value="imperial"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasink" name="Data Sink" id="92617432-5933-4833-8376-8ce7589e29e3">
+    <con:settings/>
+    <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSink type="JDBC">
+        <con:configuration>
+          <driver>net.sourceforge.jtds.jdbc.Driver</driver>
+          <connstr>jdbc:jtds:sqlserver://127.0.0.1:1433/Cities;domain=Smartbear.com;trusted_connection=yes</connstr>
+          <pass/>
+          <Connection>&lt;None></Connection>
+          <query>insert into Weather(City_Name,Country_Code,Weather_Long,Weather_Short) values (?,?,?,?);</query>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSink>
+      <con:properties>
+        <con:property>
+          <con:name>City_Name</con:name>
+          <con:value>${REST Request#Response#$['name']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>Country_Code</con:name>
+          <con:value>${REST Request#Response#$['sys']['country']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>Weather_Long</con:name>
+          <con:value>${REST Request#Response#$['weather'][0]['main']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>Weather_Short</con:name>
+          <con:value>${REST Request#Response#$['weather'][0]['description']}</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="79268fcf-07a0-4d82-90a9-ec3b7204ed0b">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Data Source</dataSourceStep>
+      <targetStep>REST Request</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

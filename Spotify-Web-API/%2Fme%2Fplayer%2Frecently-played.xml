@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/me/player/recently-played" path="/me/player/recently-played" id="fef0e6d8-4286-4834-b9d0-f75a76e26dc3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="87eed7fd-0f17-4359-962b-4f64f8aed165fileName">%2Fme%2Fplayer%2Frecently-played</con:setting>
+    <con:setting id="fef0e6d8-4286-4834-b9d0-f75a76e26dc3fileName">%2Fme%2Fplayer%2Frecently-played</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="get-recently-played" id="e3b2e723-fcef-46f0-a846-6783e6a61835" method="GET">
+    <con:description>Get tracks from the current user's recently played tracks.
+_**Note**: Currently doesn't support podcast episodes._</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>limit</con:name>
+        <con:value>20</con:value>
+        <con:style>QUERY</con:style>
+        <con:default>20</con:default>
+      </con:parameter>
+      <con:parameter>
+        <con:name>after</con:name>
+        <con:style>QUERY</con:style>
+      </con:parameter>
+      <con:parameter>
+        <con:name>before</con:name>
+        <con:style>QUERY</con:style>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Pages of PlayHistory objects</con:description>
+      <con:sampleContent>{
+  "href" : "string",
+  "items" : [ {
+    "track" : {
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "string"
+        },
+        "href" : "string",
+        "id" : "string",
+        "name" : "string",
+        "type" : "artist",
+        "uri" : "string"
+      } ],
+      "available_markets" : [ "string" ],
+      "disc_number" : 0,
+      "duration_ms" : 0,
+      "explicit" : true,
+      "external_urls" : {
+        "spotify" : "string"
+      },
+      "href" : "string",
+      "id" : "string",
+      "is_playable" : true,
+      "linked_from" : {
+        "external_urls" : {
+          "spotify" : "string"
+        },
+        "href" : "string",
+        "id" : "string",
+        "type" : "string",
+        "uri" : "string"
+      },
+      "restrictions" : {
+        "reason" : "string"
+      },
+      "name" : "string",
+      "preview_url" : "string",
+      "track_number" : 0,
+      "type" : "string",
+      "uri" : "string",
+      "is_local" : true
+    },
+    "played_at" : "2015-07-20T15:49:04-07:00",
+    "context" : {
+      "type" : "string",
+      "href" : "string",
+      "external_urls" : {
+        "spotify" : "string"
+      },
+      "uri" : "string"
+    }
+  } ],
+  "limit" : 0,
+  "next" : "string",
+  "cursors" : {
+    "after" : "string"
+  },
+  "total" : 0
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Bad or expired token. This can happen if the user revoked a token or
+the access token has expired. You should re-authenticate the user.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Bad OAuth request (wrong consumer key, bad nonce, expired
+timestamp...). Unfortunately, re-authenticating the user won't help here.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>429</con:status>
+      <con:params/>
+      <con:description>The app has exceeded its rate limits.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="17976a4c-2501-45d2-9117-372e2bbe756a" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://api.spotify.com/v1</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

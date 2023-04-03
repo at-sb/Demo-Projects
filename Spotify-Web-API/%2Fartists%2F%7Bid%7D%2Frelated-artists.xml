@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/artists/{id}/related-artists" path="/artists/{id}/related-artists" id="95147a98-8352-44d2-8949-99aae3bb6aa1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="eb99c2b0-5389-4dc1-8f9b-3142431ca2b2fileName">%2Fartists%2F%7Bid%7D%2Frelated-artists</con:setting>
+    <con:setting id="95147a98-8352-44d2-8949-99aae3bb6aa1fileName">%2Fartists%2F%7Bid%7D%2Frelated-artists</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="get-an-artists-related-artists" id="df150298-522d-40dd-91ae-0916b54ad6fd" method="GET">
+    <con:description>Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the Spotify community's [listening history](http://news.spotify.com/se/2010/02/03/related-artists/).</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>id</con:name>
+        <con:style>TEMPLATE</con:style>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>A set of artists</con:description>
+      <con:sampleContent>{
+  "artists" : [ {
+    "external_urls" : {
+      "spotify" : "string"
+    },
+    "followers" : {
+      "href" : "string",
+      "total" : 0
+    },
+    "genres" : [ "Prog rock", "Grunge" ],
+    "href" : "string",
+    "id" : "string",
+    "images" : [ {
+      "url" : "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
+      "height" : 300,
+      "width" : 300
+    } ],
+    "name" : "string",
+    "popularity" : 0,
+    "type" : "artist",
+    "uri" : "string"
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Bad or expired token. This can happen if the user revoked a token or
+the access token has expired. You should re-authenticate the user.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Bad OAuth request (wrong consumer key, bad nonce, expired
+timestamp...). Unfortunately, re-authenticating the user won't help here.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>429</con:status>
+      <con:params/>
+      <con:description>The app has exceeded its rate limits.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="2725b4cd-939c-49aa-85f3-a6a6bff53b33" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://api.spotify.com/v1</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

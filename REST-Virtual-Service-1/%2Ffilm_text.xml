@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/film_text" method="GET" resourcePath="/film_text" id="43ecabb2-1a21-4845-ae2e-9ee628a39800" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="43ecabb2-1a21-4845-ae2e-9ee628a39800fileName">%2Ffilm_text</con:setting>
+  </con:settings>
+  <con:defaultResponse>film_text</con:defaultResponse>
+  <con:dispatchStyle>QUERY_MATCH</con:dispatchStyle>
+  <con:dispatchConfig xsi:type="con:MockOperationQueryMatchDispatch" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  <con:dispatchXPath/>
+  <con:parameterDispatcherRuleContainer/>
+  <con:routeScript/>
+  <con:response name="film_text" id="7b424daf-0cc4-4215-9801-256f44e1f826" httpResponseStatus="200" mediaType="application/json" dataSource="Data Source 1" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570">
+    <con:settings/>
+    <con:responseContent>{
+${#MockResponse#film_text_description}
+}</con:responseContent>
+  </con:response>
+</con:restMockAction>

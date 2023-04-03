@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c59e8863-20eb-4382-9bf2-65d89a129696" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c59e8863-20eb-4382-9bf2-65d89a129696fileName">Test-Case-1</con:setting>
+  </con:settings>
+  <con:testStep type="jdbc" name="JDBC Request" id="2bd73aa7-441c-4aae-a843-0f81dbaac6cf">
+    <con:settings>
+      <con:setting id="prettyPrintResponse">true</con:setting>
+    </con:settings>
+    <con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:driver>com.mysql.jdbc.Driver</con:driver>
+      <con:connectionString>jdbc:mysql://127.0.0.1:3306/sakila?user=root&amp;password=PASS_VALUE</con:connectionString>
+      <con:password>5mart3ear123</con:password>
+      <con:connectionProperties/>
+      <con:query>Select film_text.*, film_text.film_id, film_text.title, film_text.description
+From film_text</con:query>
+      <con:properties/>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

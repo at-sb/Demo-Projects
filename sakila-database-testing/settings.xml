@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="d67bde2e-7f11-4d41-8e56-fe5ede907ce0" name="sakila database testing" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d67bde2e-7f11-4d41-8e56-fe5ede907ce0fileName">sakila-database-testing</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

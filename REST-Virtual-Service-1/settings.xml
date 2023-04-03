@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockService id="0e54e60e-9d2a-40fc-be37-f3957d98529d" port="8088" path="/" host="localhost" name="REST Virtual Service 1" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0e54e60e-9d2a-40fc-be37-f3957d98529dfileName">REST-Virtual-Service-1</con:setting>
+  </con:settings>
+  <con:properties/>
+  <con:constraints>
+    <con:congestion>0</con:congestion>
+    <con:inputBandwidth>-1</con:inputBandwidth>
+    <con:outputBandwidth>-1</con:outputBandwidth>
+    <con:maxThreadPoolCapacity>20</con:maxThreadPoolCapacity>
+    <con:coreThreadPoolCapacity>5</con:coreThreadPoolCapacity>
+    <con:virtError>
+      <con:start>0</con:start>
+      <con:endless>true</con:endless>
+    </con:virtError>
+  </con:constraints>
+  <con:dataSources>
+    <con:dataSource>
+      <con:dataSource type="JDBC">
+        <con:configuration>
+          <driver>com.mysql.jdbc.Driver</driver>
+          <connstr>jdbc:mysql://127.0.0.1:3306/sakila?user=root&amp;password=PASS_VALUE</connstr>
+          <pass>5mart3ear123</pass>
+          <Connection>&lt;None></Connection>
+          <query>Select film_text.description as film_text_description, film_text.title as film_text_title, film_text.film_id as film_text_film_id, film_text.description as film_text_description, film_text.title as film_text_title
+From film_text</query>
+          <fetchSize/>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSource>
+      <con:name>Data Source 1</con:name>
+      <con:property>film_text_film_id</con:property>
+      <con:property>film_text_title</con:property>
+      <con:property>film_text_description</con:property>
+      <con:property>film_text_description</con:property>
+      <con:property>film_text_title</con:property>
+      <con:preparedProperties>&lt;xml-fragment/></con:preparedProperties>
+    </con:dataSource>
+  </con:dataSources>
+  <con:headerValidator type="NONE"/>
+</con:restMockService>

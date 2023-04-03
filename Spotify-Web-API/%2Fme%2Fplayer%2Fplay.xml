@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/me/player/play" path="/me/player/play" id="db1a3f88-e42e-467a-a9e4-33d429f7f234" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ba4a8418-642a-4ffd-9a54-ed89040cb459fileName">%2Fme%2Fplayer%2Fplay</con:setting>
+    <con:setting id="db1a3f88-e42e-467a-a9e4-33d429f7f234fileName">%2Fme%2Fplayer%2Fplay</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="start-a-users-playback" id="e26aa592-2e3a-410f-9cad-06d788f8dea7" method="PUT">
+    <con:description>Start a new context or resume current playback on the user's active device.</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>device_id</con:name>
+        <con:style>QUERY</con:style>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Bad or expired token. This can happen if the user revoked a token or
+the access token has expired. You should re-authenticate the user.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Bad OAuth request (wrong consumer key, bad nonce, expired
+timestamp...). Unfortunately, re-authenticating the user won't help here.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>429</con:status>
+      <con:params/>
+      <con:description>The app has exceeded its rate limits.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "context_uri" : "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr",
+  "offset" : {
+    "position" : 5
+  },
+  "position_ms" : 0
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="00399c53-719d-487b-9a7e-973c55007358" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://api.spotify.com/v1</con:endpoint>
+      <con:request>{\r
+  "context_uri" : "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr",\r
+  "offset" : {\r
+    "position" : 5\r
+  },\r
+  "position_ms" : 0\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

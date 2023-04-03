@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="5ad74f96-25f6-4ca7-b841-261c83f174f5" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a1833076-62e4-422f-af9d-9f3ec88fe24bfileName">Test-Case-1</con:setting>
+    <con:setting id="5ad74f96-25f6-4ca7-b841-261c83f174f5fileName">Test-Case-1</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Data Source" id="ef930ea1-3ec5-4c18-8832-c975138586ba">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>10</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>NAME</GeneratorType0>
+          <PropertyName0>q</PropertyName0>
+          <repetitionCountq>0</repetitionCountq>
+          <repeatValuesq>false</repeatValuesq>
+          <NameTypeName0>FirstName</NameTypeName0>
+          <NameGenderName0>Female</NameGenderName0>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>q</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasink" name="Data Sink" id="1e1a30ff-9fee-43e6-ab31-fd3514bc72f0">
+    <con:settings/>
+    <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSink type="Excel">
+        <con:configuration>
+          <file/>
+          <outfile>data-sink.xlsx</outfile>
+          <worksheet>sheet4</worksheet>
+          <cell>A2</cell>
+          <evaluateFormulas>false</evaluateFormulas>
+          <append>false</append>
+        </con:configuration>
+      </con:dataSink>
+      <con:properties>
+        <con:property>
+          <con:name>track</con:name>
+          <con:value>${get top tracks#Response#$['tracks'][0]['name']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>album</con:name>
+          <con:value>${get top tracks#Response#$['tracks'][0]['album']['name']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>artist</con:name>
+          <con:value>${get top tracks#Response#$['tracks'][0]['artists'][0]['name']}</con:value>
+        </con:property>
+        <con:property>
+          <con:name>year</con:name>
+          <con:value>${get top tracks#Response#$['tracks'][0]['album']['release_date']}</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="80e67119-c6bb-4d78-a9fc-374024a2d54c">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Data Source</dataSourceStep>
+      <targetStep>search</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="a90597f2-d697-4ed3-a47c-dff8bb3a6c8d">
+    <con:settings/>
+    <con:config service="Spotify Web API" resourcePath="/artists/{id}/top-tracks" methodName="get-an-artists-top-tracks" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="30e586a5-0965-4530-924f-b812d43ac8a6" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://api.spotify.com/v1</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://api.spotify.com/v1/artists/lana/top-tracks</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="f3bfa0c1-9769-42d0-b2f3-9e602cca0448" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="e2b2700e-b934-4b23-b861-537f811117a1" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>anna topping spotify</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="market" value="us"/>
+          <con:entry key="id" value="lana"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

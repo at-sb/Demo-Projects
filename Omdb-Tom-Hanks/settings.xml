@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="0cf72a28-e563-4040-9304-de8e5d0a7ea8" name="Omdb Tom Hanks" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="dcfe31f8-2d4f-4c08-9b98-0a0a75b36774fileName">Omdb-Tom-Hanks</con:setting>
+    <con:setting id="0cf72a28-e563-4040-9304-de8e5d0a7ea8fileName">Omdb-Tom-Hanks</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

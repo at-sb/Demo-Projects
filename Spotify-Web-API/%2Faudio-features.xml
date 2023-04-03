@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/audio-features" path="/audio-features" id="7505d71f-86af-487f-839b-ebf6f0129bd2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="59fe26b1-42cd-43d2-8fd8-2ca07b9b28a1fileName">%2Faudio-features</con:setting>
+    <con:setting id="7505d71f-86af-487f-839b-ebf6f0129bd2fileName">%2Faudio-features</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="get-several-audio-features" id="a25b24e4-fb9a-42cd-926b-266c1fcdae1b" method="GET">
+    <con:description>Get audio features for multiple tracks based on their Spotify IDs.</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>ids</con:name>
+        <con:style>QUERY</con:style>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>A set of audio features</con:description>
+      <con:sampleContent>{
+  "audio_features" : [ {
+    "acousticness" : 0.00242,
+    "analysis_url" : "https://api.spotify.com/v1/audio-analysis/2takcwOaAZWiXQijPHIx7B\n",
+    "danceability" : 0.585,
+    "duration_ms" : 237040,
+    "energy" : 0.842,
+    "id" : "2takcwOaAZWiXQijPHIx7B",
+    "instrumentalness" : 0.00686,
+    "key" : 9,
+    "liveness" : 0.0866,
+    "loudness" : -5.883,
+    "mode" : 0,
+    "speechiness" : 0.0556,
+    "tempo" : 118.211,
+    "time_signature" : 4,
+    "track_href" : "https://api.spotify.com/v1/tracks/2takcwOaAZWiXQijPHIx7B\n",
+    "type" : "audio_features",
+    "uri" : "spotify:track:2takcwOaAZWiXQijPHIx7B",
+    "valence" : 0.428
+  } ]
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Bad or expired token. This can happen if the user revoked a token or
+the access token has expired. You should re-authenticate the user.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Bad OAuth request (wrong consumer key, bad nonce, expired
+timestamp...). Unfortunately, re-authenticating the user won't help here.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>429</con:status>
+      <con:params/>
+      <con:description>The app has exceeded its rate limits.</con:description>
+      <con:sampleContent>{
+  "error" : {
+    "status" : 0,
+    "message" : "string"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="f41c0619-a59b-4188-9731-254e9a410641" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://api.spotify.com/v1</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="6faab8de-327e-404a-ad6a-92c2673cba40">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="d7b5f83c-9bb2-4dbe-b0f3-66f69604eefd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>
