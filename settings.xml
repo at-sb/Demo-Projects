@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="ca395c12-c27a-43c6-9912-8c21ca50edfe" created="3.44.1" activeEnvironment="mysql_database_environment" name="Sample Projects AT" resourceRoot="" projectVersion="" updated="3.45.0" encryptionMode="Not encrypted" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="ca395c12-c27a-43c6-9912-8c21ca50edfe" created="3.44.1" activeEnvironment="Default environment" name="Sample Projects AT" resourceRoot="" projectVersion="" updated="3.45.0" encryptionMode="Not encrypted" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="ca395c12-c27a-43c6-9912-8c21ca50edfefileName">New folder</con:setting>
   </con:settings>

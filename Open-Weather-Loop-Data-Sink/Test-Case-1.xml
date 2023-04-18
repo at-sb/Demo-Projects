@@ -55,7 +55,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasink" name="Data Sink" id="92617432-5933-4833-8376-8ce7589e29e3">
+  <con:testStep type="datasink" name="Data Sink" id="92617432-5933-4833-8376-8ce7589e29e3" disabled="true">
     <con:settings/>
     <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSink type="JDBC">
