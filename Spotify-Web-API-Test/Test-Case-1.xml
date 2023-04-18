@@ -34,7 +34,7 @@
       <con:dataSink type="Excel">
         <con:configuration>
           <file/>
-          <outfile>data-sink.xlsx</outfile>
+          <outfile>C:/Users/anna.topping/OneDrive - SmartBear Software, Inc/Desktop/data-sink.xlsx</outfile>
           <worksheet>sheet4</worksheet>
           <cell>A2</cell>
           <evaluateFormulas>false</evaluateFormulas>

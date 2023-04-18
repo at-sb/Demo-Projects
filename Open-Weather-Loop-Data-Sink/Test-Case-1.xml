@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="8deccf5c-d9f5-4f7c-8dc5-6f61da70854b" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="https://api.openweathermap.org Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="8deccf5c-d9f5-4f7c-8dc5-6f61da70854b" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="08dc98ad-c3ae-435f-a66b-376ce4d7695cfileName">https%3A%2F%2Fapi.openweathermap.org-Test-Case-1</con:setting>
-    <con:setting id="8deccf5c-d9f5-4f7c-8dc5-6f61da70854bfileName">https%3A%2F%2Fapi.openweathermap.org-Test-Case-1</con:setting>
+    <con:setting id="8deccf5c-d9f5-4f7c-8dc5-6f61da70854bfileName">Test-Case-1</con:setting>
   </con:settings>
   <con:testStep type="datasource" name="Data Source" id="26edb3ba-b4bd-4749-9113-b2150076d9b2">
     <con:settings/>
